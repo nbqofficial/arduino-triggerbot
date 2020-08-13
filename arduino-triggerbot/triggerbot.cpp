@@ -18,7 +18,7 @@ void triggerbot::run()
 			DWORD my_team = mem.read_memory<DWORD>(my_player + m_iTeamNum);
 			DWORD my_cross = mem.read_memory<DWORD>(my_player + m_iCrossHairID);
 
-			if (my_cross > 0 && my_cross < 64)
+			if (my_cross >= 1 && my_cross <= 64)
 			{
 				DWORD entity = mem.read_memory<DWORD>(client_module.base + m_dwEntityList + ((my_cross - 1) * 0x10));
 				if (entity <= 0) { continue; }
